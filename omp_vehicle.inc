@@ -1409,26 +1409,88 @@ forward GetPlayerLastSyncedTrailerID(playerid);
 
 /**
  * <library>omp_vehicle</library>
+ * <summary>Getting data spawn info such coordinates, rotation, colours.</summary>
+ * <param name="vehicleid">The ID of the vehicle to get the spawn info of</param>
+ * <param name="spawnX">The X coordinate vehicle spawn</param>
+ * <param name="spawnY">The Y coordinate vehicle spawn</param>
+ * <param name="spawnZ">The Z coordinate vehicle spawn</param>
+ * <param name="angle">The angle vehicle spawn</param>
+ * <param name="colour1">The new vehicle's primary <a href="https://www.open.mp/docs/scripting/resources/vehiclecolorid">colour
+ * ID</a></param>
+ * <param name="colour2">The new vehicle's secondary <a href="https://www.open.mp/docs/scripting/resources/vehiclecolorid">colour
+ * ID</a></param>
+ * <seealso name="SetVehicleSpawnInfo" />
+ * <seealso name="SetVehicleRespawnDelay" />
+ * <returns>
+ *   <b><c>1</c></b>: The function executed successfully.<br/>
+ *   <b><c>0</c></b>: The function failed to execute.  The vehicle does not exist.
+ * </returns>
  */
 native bool:GetVehicleSpawnInfo(vehicleid, &Float:spawnX, &Float:spawnY, &Float:spawnZ, &Float:angle, &colour1 = 0, &colour2 = 0);
 
 /**
  * <library>omp_vehicle</library>
+ * <summary>Setting data spawn info such coordinates, rotation, colours, respawnDelay, interior.</summary>
+ * <param name="vehicleid">The ID of the vehicle to set the spawn info of</param>
+ * <param name="spawnX">The X coordinate vehicle spawn</param>
+ * <param name="spawnY">The Y coordinate vehicle spawn</param>
+ * <param name="spawnZ">The Z coordinate vehicle spawn</param>
+ * <param name="angle">The angle vehicle spawn</param>
+ * <param name="colour1">The new vehicle's primary <a href="https://www.open.mp/docs/scripting/resources/vehiclecolorid">colour
+ * ID</a></param>
+ * <param name="colour2">The new vehicle's secondary <a href="https://www.open.mp/docs/scripting/resources/vehiclecolorid">colour
+ * ID</a></param>
+ * <param name="respawnDelay">The respawn delay vehicle spawn (optional=<b><c>-2</c></b>)</param>
+ * <param name="interior">The interior vehicle spawn (optional=<b><c>-2</c></b>)</param>
+ * <seealso name="GetVehicleSpawnInfo" />
+ * <seealso name="GetVehicleRespawnDelay" />
+ * <seealso name="GetVehicleColours" />
+ * <returns>
+ *   <b><c>1</c></b>: The function executed successfully.<br/>
+ *   <b><c>0</c></b>: The function failed to execute.  The vehicle does not exist.
+ * </returns>
  */
 native bool:SetVehicleSpawnInfo(vehicleid, modelid, Float:spawnX, Float:spawnY, Float:spawnZ, Float:angle, colour1, colour2, respawnDelay = -2, interior = -2);
 
 /**
  * <library>omp_vehicle</library>
+ * <summary>Getting vehicle colours.</summary>
+ * <param name="vehicleid">The ID of the vehicle to get the colours of</param>
+ * <param name="colour1">The new vehicle's primary <a href="https://www.open.mp/docs/scripting/resources/vehiclecolorid">colour
+ * ID</a></param>
+ * <param name="colour2">The new vehicle's secondary <a href="https://www.open.mp/docs/scripting/resources/vehiclecolorid">colour
+ * ID</a></param>
+ * <seealso name="GetVehicleSpawnInfo" />
+ * <seealso name="ChangeVehicleColours" />
+ * <returns>
+ *   <b><c>1</c></b>: The function executed successfully.<br/>
+ *   <b><c>0</c></b>: The function failed to execute.  The vehicle does not exist.
+ * </returns>
  */
 native bool:GetVehicleColours(vehicleid, &colour1, &colour2) = GetVehicleColor;
 
 /**
  * <library>omp_vehicle</library>
+ * <summary>Getting vehicle paintjob.</summary>
+ * <param name="vehicleid">The ID of the vehicle to get the paintjob of</param>
+ * <seealso name="ChangeVehiclePaintJob" />
+ * <returns>
+ *   This function returns the ID of the Paintjob to apply. 
+ *   <b><c>0</c></b> is returned if the vehicle does not exist.</returns>
+ * <returns>
  */
 native GetVehiclePaintjob(vehicleid);
 
 /**
  * <library>omp_vehicle</library>
+ * <summary>Getting vehicle interior.</summary>
+ * <param name="vehicleid">The ID of the vehicle to get the interior ID of</param>
+ * <seealso name="SetVehicleSpawnInfo" />
+ * <seealso name="LinkVehicleToInterior" />
+ * <returns>
+ *   This function returns the ID interior. 
+ *   <b><c>0</c></b> is returned if the vehicle does not exist.</returns>
+ * <returns>
  */
 native GetVehicleInterior(vehicleid);
 
